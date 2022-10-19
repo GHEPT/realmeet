@@ -6,15 +6,13 @@ import static br.com.sw2you.realmeet.utils.TestDataCreator.newRoomBuilder;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import br.com.sw2you.realmeet.api.model.RoomDTO;
+import br.com.sw2you.realmeet.core.BaseUnitTeste;
 import br.com.sw2you.realmeet.domain.entity.Room;
 import br.com.sw2you.realmeet.mapper.RoomMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class)
-class RoomMapperUnitTest {
+class RoomMapperUnitTest extends BaseUnitTeste {
     private RoomMapper victim;
 
     @BeforeEach
