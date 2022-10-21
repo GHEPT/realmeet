@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 
-@ActiveProfiles(profiles = "integration-teste")
+@ActiveProfiles(profiles = "integration-test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = Application.class)
 public abstract class BaseIntegrationTest {
     @Autowired
@@ -21,12 +21,12 @@ public abstract class BaseIntegrationTest {
     private int serverPort;
 
     @BeforeEach
-    void setup() {
+    void setup() throws Exception {
         setupFlyway();
         setupEach();
     }
 
-    protected void setupEach() {}
+    protected void setupEach() throws Exception {}
 
     protected void setLocalhostBasePath(ApiClient apiClient, String path) throws MalformedURLException {
         apiClient.setBasePath(new URL("http", "localhost", serverPort, path).toString());
