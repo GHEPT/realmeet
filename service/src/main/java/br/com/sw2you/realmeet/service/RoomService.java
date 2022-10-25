@@ -29,8 +29,8 @@ public class RoomService {
     }
 
     public RoomDTO createRoom(CreateRoomDTO createRoomDTO) {
-        Room room = Room.newBuilder().seats(createRoomDTO.getSeats()).name(createRoomDTO.getName()).build();
+        Room room = roomMapper.fromCreateRoomDTOToEntity(createRoomDTO);
         roomRepository.save(room);
-        return (RoomDTO) new RoomDTO().id(room.getId()).seats(room.getSeats()).name(room.getName());
+        return roomMapper.fromEntityToDTO(room);
     }
 }
